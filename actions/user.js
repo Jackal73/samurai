@@ -2,6 +2,7 @@
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
+import { generateAIInsights } from "./dashboard";
 
 export async function updateUser(data) {
   const { userId } = await auth();
@@ -26,20 +27,32 @@ export async function updateUser(data) {
 
         // If industry doesn't exist, create it with default values - will replace with ai later
         if (!industryInsight) {
-          industryInsight = await tx.industryInsight.create({
-            data: {
-              industry: data.industry,
-              salaryRanges: [], // Default empty array
-              growthRate: 0, // Default Value
-              demandLevel: "MEDIUM", // Default Value
-              topSkills: [], // Default empty array
-              marketOutlook: "NEUTRAL", // Default Value
-              keyTrends: [], // Default empty array
-              recommendedSkills: [], // Default empty array
-              nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Default to one week from now
-            },
-          });
+          // industryInsight = await tx.industryInsight.create({
+          //   data: {
+          //     industry: data.industry,
+          //     salaryRanges: [], // Default empty array
+          //     growthRate: 0, // Default Value
+          //     demandLevel: "MEDIUM", // Default Value
+          //     topSkills: [], // Default empty array
+          //     marketOutlook: "NEUTRAL", // Default Value
+          //     keyTrends: [], // Default empty array
+          //     recommendedSkills: [], // Default empty array
+          //     nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Default to one week from now
+          //   },
+          // });
         }
+
+        const insights = await generateAIInsights(data.industry);
+
+        industryInsight = await db.industryInsight.create({
+          data: {
+            industry: data.industry,
+            ...insights,
+            nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+          },
+        });
+        // return industryInsight;
+
         // Update the user
         const updatedUser = await tx.user.update({
           where: {
