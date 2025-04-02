@@ -25,23 +25,6 @@ export async function updateUser(data) {
           },
         });
 
-        // If industry doesn't exist, create it with default values - will replace with ai later
-        // if (!industryInsight) {
-        // industryInsight = await tx.industryInsight.create({
-        //   data: {
-        //     industry: data.industry,
-        //     salaryRanges: [], // Default empty array
-        //     growthRate: 0, // Default Value
-        //     demandLevel: "MEDIUM", // Default Value
-        //     topSkills: [], // Default empty array
-        //     marketOutlook: "NEUTRAL", // Default Value
-        //     keyTrends: [], // Default empty array
-        //     recommendedSkills: [], // Default empty array
-        //     nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Default to one week from now
-        //   },
-        // });
-        // }
-
         if (!industryInsight) {
           const insights = await generateAIInsights(data.industry);
 
@@ -53,7 +36,6 @@ export async function updateUser(data) {
             },
           });
         }
-        // return industryInsight;
 
         // Update the user
         const updatedUser = await tx.user.update({
