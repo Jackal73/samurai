@@ -40,39 +40,39 @@ const DashboardView = ({ insights }) => {
   const getDemandLevelColor = (level) => {
     switch (level.toLowerCase()) {
       case "high":
-        return "bg-green-500";
+        return "bg-green-500 w-full";
       case "medium":
-        return "bg-yellow-500";
+        return "bg-yellow-500 w-2/3";
       case "low":
-        return "bg-red-500";
+        return "bg-red-500 w-1/3";
       default:
-        return "bg-gray-500";
+        return "bg-gray-500 w-0";
     }
   };
 
-  const getDemandLevelWidth = (level) => {
-    switch (level.toLowerCase()) {
-      case "high":
-        return "w-full";
-      case "medium":
-        return "w-2/3";
-      case "low":
-        return "w-1/3";
-      default:
-        return "w-0";
-    }
-  };
+  // const getDemandLevelWidth = (level) => {
+  //   switch (level.toLowerCase()) {
+  //     case "high":
+  //       return "w-full";
+  //     case "medium":
+  //       return "w-2/3";
+  //     case "low":
+  //       return "w-1/3";
+  //     default:
+  //       return "w-0";
+  //   }
+  // };
 
   const getMarketOutlookInfo = (outlook) => {
     switch (outlook.toLowerCase()) {
       case "positive":
-        return { icon: TrendingUp, color: "text-green-500 w-full" };
+        return { icon: TrendingUp, color: "text-green-500" };
       case "neutral":
-        return { icon: LineChart, color: "text-yellow-500 w-2/3" };
+        return { icon: LineChart, color: "text-yellow-500" };
       case "negative":
-        return { icon: TrendingDown, color: "text-red-500 w-1/3" };
+        return { icon: TrendingDown, color: "text-red-500" };
       default:
-        return { icon: LineChart, color: "text-gray-500 w-0" };
+        return { icon: LineChart, color: "text-gray-500" };
     }
   };
 
@@ -88,7 +88,10 @@ const DashboardView = ({ insights }) => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="md:flex block justify-between items-center">
+        <div className="text-2xl capitalize md:mb-0 mb-2">
+          {insights.industry}
+        </div>
         <Badge variant="outline">Last updated: {lastUpdatedDate}</Badge>
       </div>
 
