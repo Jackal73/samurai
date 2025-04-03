@@ -99,10 +99,10 @@ const DashboardView = ({ insights }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
+            <CardTitle className="text-[16px] font-medium">
               Market Outlook
             </CardTitle>
-            <OutlookIcon className={`h-4 w-4 ${outlookColor}`} />
+            <OutlookIcon className={`h-5 w-5 ${outlookColor}`} />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{insights.marketOutlook}</div>
@@ -114,10 +114,10 @@ const DashboardView = ({ insights }) => {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
+            <CardTitle className="text-[16px] font-medium">
               Industry Growth
             </CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+            <TrendingUp className="h-5 w-5 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -129,8 +129,10 @@ const DashboardView = ({ insights }) => {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Demand Level</CardTitle>
-            <BriefcaseIcon className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-[16px] font-medium">
+              Demand Level
+            </CardTitle>
+            <BriefcaseIcon className="h-5 w-5 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{insights.demandLevel}</div>
@@ -143,9 +145,11 @@ const DashboardView = ({ insights }) => {
         </Card>
 
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Top Skills</CardTitle>
-            <Brain className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-[9px]">
+            <CardTitle className="text-[16px] font-medium">
+              Top Skills
+            </CardTitle>
+            <Brain className="h-5 w-5 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-1">
@@ -167,7 +171,7 @@ const DashboardView = ({ insights }) => {
             Displaying minimum, median, and maximum salaries (in thousands)
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pl-0">
           <div className="h-[400px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={salaryData}>
