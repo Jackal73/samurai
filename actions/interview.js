@@ -14,8 +14,8 @@ export async function generateQuiz() {
   const user = await db.user.findUnique({
     where: { clerkUserId: userId },
     select: {
-      // industry: true,
-      // skills: true,
+      industry: true,
+      skills: true,
     },
   });
   if (!user) throw new Error("User not found");
