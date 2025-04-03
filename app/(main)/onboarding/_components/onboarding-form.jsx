@@ -26,7 +26,7 @@ import { industries } from "@/data/industries";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import useFetch from "@/hooks/useFetch";
+import useFetch from "@/hooks/use-fetch";
 import { updateUser } from "@/actions/user";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
