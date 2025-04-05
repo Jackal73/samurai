@@ -5,8 +5,12 @@ import { Button } from "@/components/ui/button";
 import { CardContent, CardFooter } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
-const QuizResult = ({ result, hideStartNew = false, onStartNew }) => {
-  if (!result) return mull;
+export default function QuizResult({
+  result,
+  hideStartNew = false,
+  onStartNew,
+}) {
+  if (!result) return null;
 
   return (
     <div className="mx-auto">
@@ -67,6 +71,4 @@ const QuizResult = ({ result, hideStartNew = false, onStartNew }) => {
       )}
     </div>
   );
-};
-
-export default QuizResult;
+}
