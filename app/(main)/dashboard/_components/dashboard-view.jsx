@@ -50,19 +50,6 @@ const DashboardView = ({ insights }) => {
     }
   };
 
-  // const getDemandLevelWidth = (level) => {
-  //   switch (level.toLowerCase()) {
-  //     case "high":
-  //       return "w-full";
-  //     case "medium":
-  //       return "w-2/3";
-  //     case "low":
-  //       return "w-1/3";
-  //     default:
-  //       return "w-0";
-  //   }
-  // };
-
   const getMarketOutlookInfo = (outlook) => {
     switch (outlook.toLowerCase()) {
       case "positive":

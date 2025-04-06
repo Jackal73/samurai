@@ -2,13 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  Trophy,
-  Target,
-  Sparkles,
-  CheckCircle2,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/hero";
 import {
   Accordion,
@@ -202,7 +196,7 @@ export default function Home() {
                 variant="secondary"
                 className="h-11 mt-5 animate-bounce"
               >
-                Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
+                Start Your Journey Today <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
